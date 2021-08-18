@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-resetear',
@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resetear.component.css']
 })
 export class ResetearComponent implements OnInit {
+  @Output() messageEvent = new EventEmitter<number>();
+ 
+  sendMessage() {
+    this.messageEvent.emit(this.contador = 0)
+  }
 
-  constructor() { }
+  @Input()
+  contador: number;
+
+
+  constructor() {
+    this.contador = 0
+   }
 
   ngOnInit(): void {
   }
+
 
 }

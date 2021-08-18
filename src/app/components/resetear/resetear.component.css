@@ -1,0 +1,12 @@
+button{
+    background-color: red;
+    color: aliceblue;
+    font-size: 1.6rem;
+    border-radius: 5%;
+    border-color: transparent;
+    cursor: pointer;
+}
+p{
+    font-size: 20px;
+    font-weight: bold;
+}

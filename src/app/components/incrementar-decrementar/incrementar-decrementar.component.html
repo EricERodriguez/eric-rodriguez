@@ -1,1 +1,18 @@
-<p>incrementar-decrementar works!</p>
+<div class="centrado">
+<p>Contador</p>
+<p > {{ contador }} </p>
+
+
+<div><button (click)="incrementar()" class="azul">Incrementar</button><button (click)="decrementar()" class="celeste">decrementar</button></div>
+
+
+ <app-multiplicar-dividir (dividirr)="receiveMessage($event)" (multiplicarr)="receiveMessage($event)" [contador]="contador" ></app-multiplicar-dividir>
+
+
+
+    <app-resetear (messageEvent)="receiveMessage($event)" [contador]="contador"></app-resetear>
+
+
+</div>
+
+

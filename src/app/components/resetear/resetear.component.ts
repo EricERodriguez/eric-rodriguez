@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CalculoService } from '../../services/calculo.service';
 
 @Component({
   selector: 'app-resetear',
@@ -6,21 +7,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./resetear.component.css']
 })
 export class ResetearComponent implements OnInit {
-  @Output() messageEvent = new EventEmitter<number>();
- 
-  sendMessage() {
-    this.messageEvent.emit(this.contador = 0)
-  }
-
-  @Input()
-  contador: number;
 
 
-  constructor() {
-    this.contador = 0
+
+  constructor(public CalculoService: CalculoService) {
    }
 
   ngOnInit(): void {
+  }
+
+  resetserv() {
+    this.CalculoService.contador1 = this.CalculoService.reset(this.CalculoService.contador1);
   }
 
 

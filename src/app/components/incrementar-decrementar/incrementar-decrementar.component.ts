@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CalculoService } from '../../services/calculo.service';
 
 @Component({
   selector: 'app-incrementar-decrementar',
@@ -8,23 +9,18 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class IncrementarDecrementarComponent implements OnInit {
 
 
-
-   constructor() { }
+  //llamo al servicio
+  constructor(public CalculoService: CalculoService) { 
+  }
 
   ngOnInit(): void {
-  }
-  //defino el contador
-  contador:number  = 0;
-
-  incrementar(){
-    return this.contador = this.contador + 1
-  }
-  decrementar(){
-    return this.contador = this.contador - 1
+    this.CalculoService.contador1 = this.CalculoService.contador1
   }
 
-
-  receiveMessage($event:any) {
-    this.contador = $event
+  incrementar() {
+    this.CalculoService.contador1 = this.CalculoService.incrementarMasUno(this.CalculoService.contador1);
+  }
+  disminuir() {
+    this.CalculoService.contador1 = this.CalculoService.disminuirUno(this.CalculoService.contador1);
   }
 }

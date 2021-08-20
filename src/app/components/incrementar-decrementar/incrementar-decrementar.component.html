@@ -1,16 +1,16 @@
 <div class="centrado">
     <p>Contador</p>
-    <p > {{ contador }} </p>
+    <p > {{ this.CalculoService.contador1 }} </p>
 
 
-    <div><button (click)="incrementar()" class="azul">Incrementar</button><button (click)="decrementar()" class="celeste">decrementar</button></div>
+    <div><button (click)="incrementar()" class="azul">Incrementar</button><button (click)="disminuir()" class="celeste">decrementar</button></div>
 
 
-    <app-multiplicar-dividir (dividirr)="receiveMessage($event)" (multiplicarr)="receiveMessage($event)" [contador]="contador" ></app-multiplicar-dividir>
+    <app-multiplicar-dividir ></app-multiplicar-dividir>
 
 
 
-    <app-resetear (messageEvent)="receiveMessage($event)" [contador]="contador"></app-resetear>
+    <app-resetear  ></app-resetear>
 
 
 </div>

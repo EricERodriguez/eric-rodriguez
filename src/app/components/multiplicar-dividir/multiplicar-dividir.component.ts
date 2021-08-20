@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CalculoService } from '../../services/calculo.service';
 
 
 @Component({
@@ -7,25 +8,23 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./multiplicar-dividir.component.css']
 })
 export class MultiplicarDividirComponent implements OnInit {
-  @Input()
-  contador: number;
 
-  constructor() {
-    this.contador = 0;
+
+  constructor(public CalculoService: CalculoService) {
+
   }
 
   ngOnInit(): void {
 
   }
-  @Output() dividirr = new EventEmitter<number>();
- 
-  dividir() {
-    this.dividirr.emit( this.contador = this.contador / 2)
-  }
-  @Output() multiplicarr = new EventEmitter<number>();
- 
-  multiplicar() {
-    this.multiplicarr.emit(this.contador = this.contador * 2)
+
+
+
+  multiplicarserv() {
+    this.CalculoService.contador1 = this.CalculoService.multiplicar(this.CalculoService.contador1);
   }
 
+  dividirserv() {
+    this.CalculoService.contador1 = this.CalculoService.dividir(this.CalculoService.contador1);
+  }
 }
